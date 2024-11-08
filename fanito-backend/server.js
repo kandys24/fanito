@@ -31,19 +31,12 @@ if (!fs.existsSync(uploadsDir)) {
 dotenv.config();
 
 const app = express();
-app.use(cors());
-
-const allowedOrigins = ['https://fanito.netlify.app', 'https://fanito-production.up.railway.app'];
+// Use CORS middleware and configure it to allow requests from your Netlify app
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+    origin: 'https://fanito.netlify.app', // Allow requests only from this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
 }));
-
 
 app.use(express.json());
 
