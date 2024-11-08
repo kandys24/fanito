@@ -33,6 +33,14 @@ dotenv.config();
 const app = express();
 // app.use(cors());
 
+app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Origin', req.header('Origin'));
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.sendStatus(200);
+});
+  
+
 const allowedOrigins = ['https://fanito.netlify.app', 'https://fanito-production.up.railway.app'];
 app.use(cors({
   origin: (origin, callback) => {
@@ -43,6 +51,9 @@ app.use(cors({
     }
   }
 }));
+
+app.options('*', cors()); // Enable preflight across all routes
+
 
 app.use(express.json());
 
