@@ -33,6 +33,17 @@ dotenv.config();
 const app = express();
 app.use(cors());
 
+const allowedOrigins = ['https://fanito.netlify.app', 'https://fanito-production.up.railway.app'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 
 app.use(express.json());
 
