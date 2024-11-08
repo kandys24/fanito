@@ -313,4 +313,28 @@ router.get('/company-details', authenticateUser, authorizeRoles('admin', 'collab
 
 
 
+router.get('/getcompani', async (req, res) => {
+    try {
+        // console.log(companyId)
+
+        // Fetch the company details using the attached companyId
+        const companyDetails = await new Promise((resolve, reject) => {
+            db.query(`SELECT * FROM companyDetails WHERE cid = ?`, [1], (err, result) => {
+                if (err) return reject(err);
+                resolve(result[0]);
+            });
+        });
+
+        if (!companyDetails) {
+            return res.status(404).json({ message: 'Company details not found' });
+        }
+
+        res.json({ companyDetails });
+    } catch (err) {
+        console.error('Error fetching company details:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
 module.exports = router;
