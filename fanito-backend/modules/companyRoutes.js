@@ -319,7 +319,7 @@ router.get('/getcompani', async (req, res) => {
 
         // Fetch the company details using the attached companyId
         const companyDetails = await new Promise((resolve, reject) => {
-            db.query(`SELECT * FROM companyDetails WHERE cid = ?`, [1], (err, result) => {
+            db.query(`SELECT * FROM company WHERE cid = ?`, [1], (err, result) => {
                 if (err) return reject(err);
                 resolve(result[0]);
             });
