@@ -31,7 +31,7 @@ if (!fs.existsSync(uploadsDir)) {
 dotenv.config();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 app.use(cors({ origin: 'https://fanito.netlify.app' }));
 
