@@ -1,1 +1,1 @@
-export const API_URL = `https://fanito-production.up.railway.app:3306`;
+export const API_URL = `https://fanito-production.up.railway.app`;
