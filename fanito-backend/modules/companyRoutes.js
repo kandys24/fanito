@@ -137,12 +137,12 @@ router.post('/setcompany', async (req, res) => {
         };
 
         // Optionally send an email
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log('Error:', error);
-            }
-            console.log('Email sent:', info.response);
-        });
+        // transporter.sendMail(mailOptions, (error, info) => {
+        //     if (error) {
+        //         return console.log('Error:', error);
+        //     }
+        //     console.log('Email sent:', info.response);
+        // });
 
         res.status(201).json({ message: 'Company and admin user created successfully' });
 
