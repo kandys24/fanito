@@ -73,7 +73,7 @@ const Signup = () => {
                 })
                 return;
             }
-            console.log('Signup successful:', response.data);
+            // console.log('Signup successful:', response.data);
             handleLoginRedirect();
         } catch (error) {
             console.error('Signup error:', error);
