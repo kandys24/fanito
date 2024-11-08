@@ -6,8 +6,6 @@ const getTokenConfig = () => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`, // Add the token to the Authorization header
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
         },
     };
 
