@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-gradientAnimation {
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+
+  .animate-logoAnimation {
+    animation: logoAnimation 2s infinite alternate;
+  }
+
+  .animate-textAnimation {
+    animation: textAnimation 2s infinite alternate;
+  }
+
+  /* Custom keyframes */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes logoAnimation {
+    from {
+      transform: scale(0.9);
+      opacity: 0.6;
+    }
+    to {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes textAnimation {
+    from {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    to {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}
