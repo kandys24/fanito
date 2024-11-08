@@ -31,12 +31,9 @@ if (!fs.existsSync(uploadsDir)) {
 dotenv.config();
 
 const app = express();
+
 // Use CORS middleware and configure it to allow requests from your Netlify app
-app.use(cors({
-    origin: 'https://fanito.netlify.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors({ origin: '*' }));
 
 app.use(express.json());
 
