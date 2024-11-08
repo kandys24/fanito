@@ -65,7 +65,7 @@ const Signup = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await axios.post(`${API_URL}/company/setcompany`, formData, { withCredentials: true }); // Replace with your API endpoint
+            const response = await axios.post(`${API_URL}/company/setcompany`, formData); // Replace with your API endpoint
             console.log(response.data)
             if(response.data.error === 'Email already in use'){
                 setErrors({
