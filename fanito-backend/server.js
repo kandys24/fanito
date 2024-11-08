@@ -33,7 +33,11 @@ dotenv.config();
 const app = express();
 
 // Use CORS middleware and configure it to allow requests from your Netlify app
-app.use(cors({ origin: '*' }));
+app.use(cors({
+    origin: 'https://fanito.netlify.app', // Allow this domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true
+}));
 
 app.use(express.json());
 
